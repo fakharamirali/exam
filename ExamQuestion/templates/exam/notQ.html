@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,32 +14,22 @@
     <title>صفحه اصلی</title>
 </head>
 
-<body dir="rtl">
-<div class="container">
-    <div class="card">
-        <div class="card-header">سوال</div>
+<body>
+<div class="container" dir="rtl">
+    <div class="m-3 alert-warning border-danger card text-center fixed-top" style="font-size: x-large; padding: 2%">
         <div class="card-body">
-            {{ Q.qestion }}
+            سوال موجود نمی باشد.
         </div>
-    </div>
-    <br>
-    <br>
-    <div>
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-           aria-controls="collapseExample">
-            نمایش پاسخ
-        </a>
-    </div>
-    <br>
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body text-success bg-light">
-            <pre>{{ Q.response }}</pre>
-        </div>
+        {% if user.is_superuser %}
+            <a href="{% url "exam:create" %}">
+                <button class="btn btn-success">طراحی سوال</button>
+            </a>
+        {% endif %}
     </div>
 </div>
-</body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+</body>
 
 </html>
