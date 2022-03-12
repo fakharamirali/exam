@@ -1,0 +1,8 @@
+.padding {
+    padding: 40;
+}
+
+.border {
+    border-radius: 50%;
+    border: black solid 2px;
+}
